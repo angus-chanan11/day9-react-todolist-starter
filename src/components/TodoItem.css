@@ -1,3 +1,13 @@
+.todo-text {
+    border-color: black;
+    border: 1px solid;
+    width: 40vw;
+}
+
+.remove-button{
+    margin: 10px 20px;
+}
+
 .finished {
     text-decoration: line-through;
 }
