@@ -1,11 +1,9 @@
-export const initialState = [
-  {id: Date.now(), text: "the first todo", done: false},
-  {id: Date.now(), text: "the second todo", done: false},
-];
+export const initialState = [];
 
 export const ACTION = {
   ADD: "ADD",
-  DELETE: "DELETE"
+  DELETE: "DELETE",
+  TOGGLE: "TOGGLE"
 };
 
 export const todoReducer = (state, action) => {
@@ -14,6 +12,9 @@ export const todoReducer = (state, action) => {
       return [...state, {id: Date.now(), text: action.payload, done: false}]
     case ACTION.DELETE:
       return state.filter(todo => todo.id !== action.payload)
+    case ACTION.TOGGLE:
+      return state.map(todo => 
+        todo.id === action.payload ? {...todo, done: !todo.done} : todo)
     default:
       return state
   }
