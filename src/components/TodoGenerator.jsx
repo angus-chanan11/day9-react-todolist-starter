@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { TodoContext } from "../App"
 import { ACTION } from "../context/todoReducer"
+import "./TodoGenerator.css"
 
 const TodoGenerator = () => {
     const [todoText, setTodoText] = useState("")
@@ -14,9 +15,9 @@ const TodoGenerator = () => {
         dispatch({type: ACTION.ADD, payload: todoText})
     }
 
-    return <div>
+    return <div className={"todo-generator-wrapper"}>
         <input value={todoText} onChange={inputChangeHandler}/>
-        <button onClick={clickHandler}>add</button>
+        <button className={"addButton"} onClick={clickHandler}>add</button>
     </div>
 }
 

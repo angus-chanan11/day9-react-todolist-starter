@@ -1,0 +1,13 @@
+/* .todo-generator-wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 30vw;
+    text-align: center;
+} */
+
+.addButton {
+    background-color: rgb(17, 98, 121);
+    color: white;
+    border: none;
+    margin: 10px 20px;
+}
