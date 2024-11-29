@@ -2,7 +2,7 @@ import { createContext, useReducer } from "react";
 import './App.css';
 import TodoList from "./components/TodoList";
 import { initialState, todoReducer } from "./context/todoReducer";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import NotFound from "./components/NotFound";
 
 export const TodoContext = createContext();
@@ -15,6 +15,7 @@ function App() {
       <TodoContext.Provider value={{ state, dispatch }}>
         <Router>
           <Routes>
+            <Route path={"/"} element={<Navigate to="/todo-list"/>}/>
             <Route path={"/todo-list"} element={<TodoList/>}/>
             <Route path={"*"} element={<NotFound/>}/>
           </Routes>
