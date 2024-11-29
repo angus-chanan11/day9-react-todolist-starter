@@ -3,15 +3,15 @@ import { TodoContext } from "../App"
 import { ACTION } from "../context/todoReducer"
 import "./TodoItem.css"
 
-const TodoItem = (props) => {   
+const TodoItem = ({todo}) => {   
     const {dispatch} = useContext(TodoContext)
 
     const buttonClickHandler = () => {
-        dispatch({type: ACTION.DELETE, payload: props.todo.id})
+        dispatch({type: ACTION.DELETE, payload: todo.id})
     }
 
     const spanClickHandler = () => {
-        dispatch({type: ACTION.TOGGLE, payload: props.todo.id})
+        dispatch({type: ACTION.TOGGLE, payload: todo.id})
     }
 
     return (
@@ -21,9 +21,9 @@ const TodoItem = (props) => {
             alignItems: "center",
             width: "100%"
         }}>        
-            <p className={`todo-text ${props.todo.done ? "finished" : ""}`} 
+            <p className={`todo-text ${todo.done ? "finished" : ""}`} 
                 onClick={spanClickHandler}>
-                {props.todo.text}
+                {todo.text}
             </p>
             <button className={"remove-button"} onClick={buttonClickHandler}>X</button>
         </div>
