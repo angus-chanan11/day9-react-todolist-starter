@@ -9,3 +9,8 @@ export const getTodoList = async () => {
     const response = await instance.get("/TodoItem");
     return response.data;
 }
+
+export const addTodo = async (todoText) => {
+    const response = await instance.post("/TodoItem", {id: Date.now(), text: todoText, done: false})
+    return response.data;
+}

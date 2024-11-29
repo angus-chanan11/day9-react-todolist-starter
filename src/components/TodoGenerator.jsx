@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import { TodoContext } from "../App"
 import { ACTION } from "../context/todoReducer"
 import "./TodoGenerator.css"
+import { addTodo } from "../api/todo"
 
 const TodoGenerator = () => {
     const [todoText, setTodoText] = useState("")
@@ -14,7 +15,11 @@ const TodoGenerator = () => {
     const clickHandler = () => {
         const trimText = todoText.trim()
         if (trimText === "") return
-        dispatch({type: ACTION.ADD, payload: trimText})
+        addTodo(trimText)
+            .then((todo) => 
+                dispatch({type: ACTION.ADD, payload: todo})
+        )
+        
     }
 
     return <div className={"todo-generator-wrapper"}>

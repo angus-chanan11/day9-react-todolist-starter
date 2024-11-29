@@ -10,7 +10,7 @@ export const ACTION = {
 export const todoReducer = (state, action) => {
   switch (action.type){
     case ACTION.ADD:
-      return [...state, {id: Date.now(), text: action.payload, done: false}]
+      return [...state, action.payload]
     case ACTION.DELETE:
       return state.filter(todo => todo.id !== action.payload)
     case ACTION.TOGGLE:
