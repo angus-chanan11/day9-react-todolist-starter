@@ -18,3 +18,8 @@ export const addTodo = async (newTodo) => {
 export const deleteTodo = async (todoId) => {
     await instance.delete(`/TodoItem/${todoId}`)
 }
+
+export const updateTodo = async (id, {text, done}) => {
+    const response = await instance.put(`/TodoItem/${id}`, {id, text, done})
+    return response.data;
+}

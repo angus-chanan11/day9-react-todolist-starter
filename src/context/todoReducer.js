@@ -15,7 +15,7 @@ export const todoReducer = (state, action) => {
       return state.filter(todo => todo.id !== action.payload)
     case ACTION.TOGGLE:
       return state.map(todo => 
-        todo.id === action.payload ? {...todo, done: !todo.done} : todo)
+        todo.id === action.payload.id ? action.payload : todo)
     case ACTION.SET:
       return action.payload
     default:
