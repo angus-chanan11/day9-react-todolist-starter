@@ -22,7 +22,10 @@ const TodoList = () => {
   }, [])
 
   return (
-      <div>
+      <div style={{
+        display: "flex",
+        flexDirection: "column"
+      }}>
         {loading ? 
           <Spin indicator={<LoadingOutlined spin />} /> : 
           <>

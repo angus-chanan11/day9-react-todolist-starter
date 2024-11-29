@@ -24,7 +24,7 @@ const TodoGenerator = () => {
     }
 
     return <div className={"todo-generator-wrapper"}>
-        <input value={todoText} onChange={inputChangeHandler}/>
+        <input style={{width: "39vw"}} value={todoText} onChange={inputChangeHandler}/>
         <button className={"addButton"} onClick={clickHandler}>add</button>
     </div>
 }
