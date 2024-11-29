@@ -3,7 +3,8 @@ export const initialState = [];
 export const ACTION = {
   ADD: "ADD",
   DELETE: "DELETE",
-  TOGGLE: "TOGGLE"
+  TOGGLE: "TOGGLE",
+  SET: "SET"
 };
 
 export const todoReducer = (state, action) => {
@@ -15,6 +16,8 @@ export const todoReducer = (state, action) => {
     case ACTION.TOGGLE:
       return state.map(todo => 
         todo.id === action.payload ? {...todo, done: !todo.done} : todo)
+    case ACTION.SET:
+      return action.payload
     default:
       return state
   }
