@@ -8,12 +8,13 @@ const TodoGenerator = () => {
     const {dispatch} = useContext(TodoContext)
 
     const inputChangeHandler = (event) => {
-        setTodoText(event.target.value.trim())
+        setTodoText(event.target.value)
     }
 
     const clickHandler = () => {
-        if (todoText === "") return
-            dispatch({type: ACTION.ADD, payload: todoText})
+        const trimText = todoText.trim()
+        if (trimText === "") return
+        dispatch({type: ACTION.ADD, payload: trimText})
     }
 
     return <div className={"todo-generator-wrapper"}>
