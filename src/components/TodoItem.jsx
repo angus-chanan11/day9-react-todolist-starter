@@ -2,12 +2,14 @@ import { useContext } from "react"
 import { TodoContext } from "../App"
 import { ACTION } from "../context/todoReducer"
 import "./TodoItem.css"
+import { deleteTodo } from "../api/todo"
 
 const TodoItem = ({todo}) => {   
     const {dispatch} = useContext(TodoContext)
 
     const buttonClickHandler = () => {
-        dispatch({type: ACTION.DELETE, payload: todo.id})
+        deleteTodo(todo.id)
+            .then((_) => dispatch({type: ACTION.DELETE, payload: todo.id}))
     }
 
     const spanClickHandler = () => {

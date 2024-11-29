@@ -14,3 +14,7 @@ export const addTodo = async (todoText) => {
     const response = await instance.post("/TodoItem", {id: Date.now(), text: todoText, done: false})
     return response.data;
 }
+
+export const deleteTodo = async (todoId) => {
+    await instance.delete(`/TodoItem/${todoId}`)
+}
