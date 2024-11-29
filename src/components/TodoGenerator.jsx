@@ -15,7 +15,8 @@ const TodoGenerator = () => {
     const clickHandler = () => {
         const trimText = todoText.trim()
         if (trimText === "") return
-        addTodo(trimText)
+        const newTodo = {text: trimText, done: false}
+        addTodo(newTodo)
             .then((todo) => 
                 dispatch({type: ACTION.ADD, payload: todo})
         )
